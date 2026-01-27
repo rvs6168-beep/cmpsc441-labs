@@ -83,7 +83,9 @@ print(f"Armor: {armor}")
 # Expected output: 25
 def get_player_intelligence(data):
     """Return the player's intelligence stat."""
-    # YOUR CODE HERE
+    player_intelligence = data["player"]["stats"]["intelligence"]
+    return player_intelligence
+    # print(f"Player intelligence: {player_intelligence}")
     pass
 
 
@@ -91,7 +93,9 @@ def get_player_intelligence(data):
 # Expected output: 3
 def get_health_potion_count(data):
     """Return the quantity of health potions in inventory."""
-    # YOUR CODE HERE
+    health_potion_count = data["inventory"]["potions"][0]["quantity"]
+    return health_potion_count
+    # print(f"Health Potions: {health_potion_count}")
     pass
 
 
@@ -99,7 +103,8 @@ def get_health_potion_count(data):
 # Expected output: ["Defeat the Dragon", "Find the Lost Tome"]
 def get_active_quest_titles(data):
     """Return a list of titles from active quests."""
-    # YOUR CODE HERE
+    active_quests = data["quests"]["active"]
+    return active_quests
     pass
 
 
@@ -107,7 +112,14 @@ def get_active_quest_titles(data):
 # Expected output: 65 (45 + 20)
 def calculate_total_weapon_damage(data):
     """Return the sum of damage from all weapons."""
-    # YOUR CODE HERE
+    weapon_list = data["inventory"]["weapons"]
+    size = len(weapon_list)
+    tracker = 0
+    total_weapon_damage = 0
+    while (tracker != size):
+        total_weapon_damage = total_weapon_damage + weapon_list[tracker]['damage']
+        tracker += 1
+    return total_weapon_damage
     pass
 
 
@@ -115,7 +127,8 @@ def calculate_total_weapon_damage(data):
 # Add: {"name": "Stamina Elixir", "effect": "boost_stamina", "amount": 30, "quantity": 2}
 def add_potion(data, potion):
     """Add a new potion dictionary to the inventory's potions list."""
-    # YOUR CODE HERE
+    potion_list = data["inventory"]["potions"]
+    potion_list.append(potion)
     pass
 
 
@@ -126,7 +139,15 @@ def complete_quest_and_get_reward(data, quest_id):
     Find the quest with the given id, add its reward to player's gold,
     and return the new gold total.
     """
-    # YOUR CODE HERE
+    active_quest_list = data["quests"].get("active", "No active quests")
+    size = len(active_quest_list)
+    tracker = 0
+    while (tracker != size):
+        if (active_quest_list[tracker]["id"] == quest_id):
+            reward_gold = active_quest_list[tracker]["reward"]
+            data["inventory"]["gold"] += reward_gold
+            return data["inventory"]["gold"]
+        tracker += 1
     pass
 
 
@@ -148,7 +169,8 @@ print(f"\nParsed back - Player name: {parsed_data['player']['name']}")
 # a "pretty" JSON string with 4-space indentation
 def to_pretty_json(data):
     """Convert a dictionary to a pretty-printed JSON string with 4-space indent."""
-    # YOUR CODE HERE
+    json_string = json.dumps(data, indent=4)
+    return json_string
     pass
 
 
