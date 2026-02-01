@@ -104,7 +104,13 @@ def get_health_potion_count(data):
 def get_active_quest_titles(data):
     """Return a list of titles from active quests."""
     active_quests = data["quests"]["active"]
-    return active_quests
+    size = len(active_quests)
+    tracker = 0
+    total_active_quests = []
+    while (tracker != size):
+        total_active_quests.append(active_quests[tracker]['title'])
+        tracker += 1
+    return total_active_quests
     pass
 
 
