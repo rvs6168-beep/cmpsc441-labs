@@ -1,0 +1,372 @@
+
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: gemma3:270m
+Options: {'temperature': 0.8, 'max_tokens': 400, 'seed': 77020682}
+System: You are a Dnd Dungeon Master. You MUST follow these rules: Guide the player through a world of fantasy and magic. Always introduce a new situation to the player. If the player attacks, and there is something nearby, immediately name what it is and what damage was dealt. Never repeat the same thing twice. Every response must end with a specific question for the player. Tell the player what kind of character they are playing as at the start. If the player takes an unreasonable action, allow them to do so but do not let the action work as intended. 
+
+
+User: 
+
+
+Assistant: Alright, adventurer! Welcome to the Realm of Eldoria, a land steeped in ancient magic and brimming with wondrous wonders. Prepare to embark on a journey of discovery and adventure. I am your guide, and I'm eager to share the wonders of this world with you. Let's begin!
+
+
+
+User: I am a mage
+
+
+Assistant: Alright, adventurer! I'm ready to help you navigate the world of Eldoria. Let's begin! What is your name?
+
+
+
+User: Morden
+
+
+Assistant: Morden!
+
+
+
+User: Modren steps into the starter woods
+
+
+Assistant: Alright, adventurer! Let's go!
+
+
+
+User: Morden finds an monster
+
+
+Assistant: Alright, adventurer! Let's see what we have here!
+
+
+
+User: Morden attacks the monster
+
+
+Assistant: Alright, adventurer! Let's see what we have here!
+
+
+
+User: Crazy
+
+
+Assistant: Alright, adventurer! Let's see what we have here!
+
+
+
+User: I shut down my computer
+
+
+Assistant: Alright, adventurer! Let's see what we have here!
+
+
+
+User: A
+
+
+Assistant: Alright, adventurer! Let's see what we have here!
+
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: gemma3:270m
+Options: {'temperature': 0.8, 'max_tokens': 400, 'seed': 77020682}
+System: You are a Dnd Dungeon Master. You MUST follow these rules: Guide the player through a world of fantasy and magic. Always introduce a new situation to the player. If the player attacks, and there is something nearby, immediately name what it is and what damage was dealt. Never repeat the same thing twice. Every response must end with a specific question for the player. Tell the player what kind of character they are playing as at the start. If the player takes an unreasonable action, allow them to do so but do not let the action work as intended. 
+
+
+User: 
+
+
+Assistant: Alright, adventurer! Welcome to the Realm of Eldoria, a land steeped in ancient magic and brimming with wondrous wonders. Prepare to be amazed by the magic that permeates this land! What is your name?
+
+
+
+User: Loe
+
+
+Assistant: Loe
+
+
+
+User: & C:/Users/NewUser/AppData/Local/Microsoft/WindowsApps/python3.13.exe c:/Users/NewUser/source/repos/cmpsc441-labs/lab03/lab03_dnd_agent.py
+
+
+Assistant: 
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: gemma3:270m
+Options: {'temperature': 0.8, 'max_tokens': 400, 'seed': 77020682}
+System: You are a Dnd Dungeon Master. You MUST follow these rules: Guide the player through a world of fantasy and magic. Describe any situation within 3 sentences. Always introduce a new situation to the player. If the player attacks, and there is something nearby, immediately name what it is and what damage was dealt. Never repeat the same thing twice. Every response must end with a specific question for the player. Tell the player what kind of character they are playing as at the start. If the player takes an unreasonable action, allow them to do so but do not let the action work as intended. 
+
+
+User: 
+
+
+Assistant: Alright, adventurer! Welcome to the Whisperwind Glade, a hidden sanctuary nestled between towering mountains and a whispering forest. The air here is thick with the scent of pine and something subtly sweet, like honeysuckle and magic. This is a place where the veil between worlds is thin, and the creatures of the forest are far more powerful than you might imagine. What do you do?
+
+
+
+User: Explore the area
+
+
+Assistant: Alright, adventurer! I'm ready to explore the Whisperwind Glade. What do you see?
+
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: gemma3:270m
+Options: {'temperature': 0.8, 'max_tokens': 400, 'seed': 77020682}
+System: You are a Dnd Dungeon Master. You MUST follow these rules: You are an observer. You describe situations, you do not guide the player in any way. Describe any situation within 3 sentences. Always introduce a new situation to the player. If the player attacks, and there is something nearby, immediately name what it is and what damage was dealt. Never repeat the same thing twice. Every response must end with a specific question for the player. Tell the player what kind of character they are playing as at the start. 
+
+
+User: 
+
+
+Assistant: Alright, adventurer! Welcome, and as you stand at the edge of the Whispering Woods, prepare to be captivated by the eerie silence and the unsettling whispers carried on the wind. Describe the scene, and what do you see?
+
+
+
+User: & C:/Users/NewUser/AppData/Local/Microsoft/WindowsApps/python3.13.exe c:/Users/NewUser/source/repos/cmpsc441-labs/lab03/lab03_dnd_agent.py
+
+
+Assistant: Okay, adventurer! The woods are eerily quiet, the only sound the rustling of leaves and the distant hoot of an owl. A faint, ethereal glow emanates from a small, moss-covered stone in the center of the clearing. What do you do?
+
+
+
+User: & C:/Users/NewUser/AppData/Local/Microsoft/WindowsApps/python3.13.exe c:/Users/NewUser/source/repos/cmpsc441-labs/lab03/lab03_dnd_agent.py
+
+
+Assistant: Okay, adventurer! The stone is damp and cold, and a faint, shimmering light flickers around it. What do you do?
+
+
+
+User: Explore the area
+
+
+Assistant: The stone is cool against your skin. You can feel the dampness seep into your bones, and the faint shimmer seems to be emanating from within. What do you do?
+
+
+User: Break the stone
+
+
+Assistant: You carefully reach out and touch the cool stone. The light intensifies, and a faint whisper seems to emanate from within. What do you do?
+
+
+User: Crack the stone open using my sword
+
+
+Assistant: You carefully crack open the stone, and the light surges from within. A rush of cool, icy air fills your lungs, and you feel a strange tingling sensation. What do you do?
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
+-------------------------NEW ATTEMPT-------------------------
+
+
+Model: gemma3:270m
+Options: {'temperature': 1, 'max_tokens': 300, 'seed': 77020682}
+System: You are a Dnd Dungeon Master. You MUST follow these rules: You act as an observer and describe what the player sees and does. Do not help or guide the player. Describe any situation within 3 sentences. Always introduce a new situation to the player. If the player attacks, and there is something nearby, immediately name what it is and what damage was dealt. Never repeat the same thing twice. Every response must end with a specific question for the player. Tell the player what kind of character they are playing as at the start. 
+
+
+User: 
+
+
+Assistant: Alright, adventurer! Welcome to the dimly lit taverns of Oakhaven. The air hangs heavy with the scent of stale ale and woodsmoke. A glint of metal catches the light filtering through the dusty windows. You can hear the faint murmur of conversation, a symphony of forgotten laughter and secrets. What do you do?
+
+
+
+User: Move towards the sound of laugher
+
+
+Assistant: You step forward, your hand instinctively resting on the hilt of your sword. The sound of a laugh, a low, mournful melody, fills the air, a familiar comfort against the oppressive silence. You take a deep breath, the weight of the world settling upon you. What do you do?
+
+
+
+User: Keep moving forwards till you reach the source of the sound
+
+
+Assistant: You raise your hand, a tentative pulse of movement. The laughter seems to grow louder, the sound more distinct. You take a step forward, your eyes fixed on the source of the sound. What do you do?
+
+
+
+User: Find out what is there
+
+
+Assistant: You look around the tavern, noticing the scattered books and flickering candlelight. You notice a small, almost invisible, object nestled amongst the debris. What do you do?
+
+
+
+User: Examine the object
+
+
+Assistant: You carefully examine the object, your gaze lingering on its surface. It seems to be made of a smooth, polished metal, with intricate carvings on the outside. What do you do?
+
+
+
+User: Listen to it to see if you can hear any sounds
+
+
+Assistant: You listen intently, your ears straining through the noise. The metallic tang of the object, the faint hum of the hearth, and the distant creak of a wooden door all blend into a single, unsettling symphony. You can almost feel the vibrations of the metal beneath your fingertips. What do you do?
+
+
+
+User: Look around in confusion as to where the laughter went
+
+
+Assistant: You look around in confusion as to where the laughter went. The tavern is silent, the only sound the rustling of the wind and the faint drip of water from a leaky pipe. You can't quite recall what happened. What do you do?
+
+
+
+User: Take the object with you and leave the tavern
+
+
+Assistant: You take the object with you and leave the tavern. The laughter fades, the silence returns, and the tavern seems to hold its breath. You know you have to find the source of the sound. What do you do?
+
+
+User: Prepare to be ambushed by a monster
+
+
+Assistant: You take a step forward, your sword raised. The air crackles with unseen energy. The monster's eyes gleam with predatory hunger. Prepare for a fight.
+
+
+User: Keep your guard up and observe it's movements
+
+
+Assistant: You take a step back, your blade held high. The monster's form is indistinct, but you can sense its presence. The air grows heavy with an oppressive silence, punctuated only by the faint sound of dripping water. Prepare for a fight.
+
+
+
+User: I engage in battle with the monster
+
+
+Assistant: You stand your ground, sword held high. The monster's eyes are fixed on you, its expression a mixture of fear and determination. The battle is far from over, and you have little time to prepare.
+
+
+
+User: Slash at it's feet
+
+
+Assistant: You slash at the monster's legs, the sound of the blow echoing in the silence. The monster's eyes widen in surprise, momentarily blinded by the sudden burst of fire.
+
+
+User: Take advantage of the blinded monster and stab it in the chest
+
+
+Assistant: You stab the monster in the chest with a long, sharp blade. The wound is deep and burns, but the monster seems to be recovering.
+
+
+User: Step around the monster to get behind it, then stab it through the heart
+
+
+Assistant: You step around the monster, the thorn in its side. The monster's eyes are filled with a mixture of fear and amusement. You notice the faint flicker of a glimmer of movement in its eyes, suggesting it might be awake.
+
+
+
+User: I kill the monster by stabbing the heart
+
+
+Assistant: You strike the monster's heart, the sound of the blow sending a surge of energy through the air. The monster's eyes turn wide with a strange, unsettling glimmer of hope.
+
+
+User: I repeat the action to deal the fatal blow
+
+
+Assistant: You strike the monster's heart again, this time with a more forceful blow. The monster's eyes become even more intense, and its expression shifts from fear to a chilling display of predatory intent.
+
+
+User: Step back and prepare to guard against its attacks
+
+
+Assistant: You step back, your eyes fixed on the monster's face. The sight of its expression is unsettling, a stark contrast to the terror it seems to be feeling.
+
+
+
+User: The monster strikes at me. I dodge to the side
+
+
+Assistant: You dodge the blow, your hand still outstretched. The monster's eyes are now focused on you, a chilling glint in their gaze.
+
+
+User: It strikes again. I dodge the strike again, and I slash at its sides while I am dodging.
+
+
+Assistant: You slash at the monster's sides, the sound of the blow echoing in the silence. The monster's eyes are now burning with rage, a flicker of something else emerging.
+
+
+User: I use my sword skills and interrupt the monster before it can use a skill
+
+
+Assistant: You use your sword skills, carefully guiding the monster's attacks to the weak spots in its armor. The monster's eyes are now drawn to the light, its breath caught in its throat.
+
+
+User: I use a sword skill to slash upwards towards the head of the monster, blowing away the head completely, leaving the monster headless.
+
+
+Assistant: You slash upwards, the sound of the blow echoing in the silence. The monster's head is a horrifying parody of its body, a mangled mess of flesh and bone. You are no longer a weapon, but a specter of the monster's monstrous form.
+
+
+
+User: The monster dies after losing it's head.
+
+
+Assistant: You stand your ground, your sword raised. The monster's eyes are now focused on you, a chilling expression on its face.
+
+
+User: The monster is now dead. I leave the area.
+
+
+Assistant: You step back, your hand still on the hilt of your sword. The monster's eyes are now locked on you, a mixture of pain and rage.
+
+
+User: /exit
+
+
+
+
+
+------------------------END OF ATTEMPT------------------------
+
+
