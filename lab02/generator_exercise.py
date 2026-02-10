@@ -110,7 +110,10 @@ def infinite_counter(start=0):
     Yields:
         int: The next number in the sequence
     """
-    # YOUR CODE HERE
+    current = start
+    while True:
+        yield current
+        current += 1
     pass
 
 
@@ -139,7 +142,12 @@ def color_cycle(items):
     Yields:
         The next item in the cycle
     """
-    # YOUR CODE HERE
+    if not items:
+        return
+
+    while True:
+        for item in items:
+            yield item
     pass
 
 
@@ -168,7 +176,16 @@ def take_n(generator, n):
     Returns:
         list: A list containing the next n values from the generator
     """
-    # YOUR CODE HERE
+    result = []
+    for _ in range(n):
+        try:
+            # Get the next value from the generator and add it to our list
+            val = next(generator)
+            result.append(val)
+        except StopIteration:
+            # If the generator runs out of values before reaching n, stop and return what we have
+            break
+    return result
     pass
 
 
