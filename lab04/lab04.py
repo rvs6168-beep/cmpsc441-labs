@@ -5,7 +5,26 @@ sys.path.append(str(Path(__file__).parents[1]))
 
 from util.llm_utils import AgentTemplate
 
-# Add code here
+# Add code here.
+from ollama import chat
+from util.llm_utils import pretty_stringify_chat, ollama_seed as seed
+
+# Model and name information
+sign_your_name = 'Raghav Sandeep Sharavanan'
+model = 'gemma3:270m'
+dm_template_file = 'lab04/demo_template.json'
+
+# System prompt to define the agent's behavior as a Dungeon Master
+messages = [
+    {'role': 'system', 'content': template_file=dm_template_file, recruit_difficulty='not easy', reward='a sword'}
+]
+
+# Hyperparameters: High temperature with high token
+options = {'temperature': 1, 'max_tokens': 300}
+
+messages.append({'role':'user', 'content':''}) # An empty user message to prompt the model to start responding.
+
+options |= {'seed': seed(sign_your_name)}
 
 # But before here.
 
