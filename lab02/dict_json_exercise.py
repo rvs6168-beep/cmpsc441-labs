@@ -103,7 +103,7 @@ def get_health_potion_count(data):
 # Expected output: ["Defeat the Dragon", "Find the Lost Tome"]
 def get_active_quest_titles(data):
     """Return a list of titles from active quests."""
-    active_quests = data["quests"]["active"]
+    active_quests = data["quests"]["active"].values()
     return active_quests
     pass
 
