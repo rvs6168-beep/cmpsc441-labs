@@ -6,32 +6,39 @@ sys.path.append(root_path)
 
 from util.llm_utils import AgentTemplate
 
-def run_console_chat(dm_agent):
-    print("\n>>> [System] Contacting the Dungeon Master...\n")
-    
-    dm_response = dm_agent.start_chat() 
-    print(f"[Dungeon Master]: {dm_response}\n")
+# Add code here.
+from ollama import chat
+from util.llm_utils import pretty_stringify_chat, ollama_seed as seed
 
-    if "ENEMY" in dm_response.upper() or "FIGHT" in dm_response.upper():
-        next_template = "lab04_enemy.json"
-        print(">>> System: Routing to ENEMY encounter...\n")
-    else:
-        next_template = "lab04_npc.json"
-        print(">>> System: Routing to NPC encounter...\n")
+# Model and name information
+sign_your_name = 'Raghav Sandeep Sharavanan'
+model = 'gemma3:270m'
+dm_template_file = 'lab04/demo_template.json'
 
-    next_path = os.path.join(root_path, "lab04", next_template)
-    
-    current_summary = "The encounter has just begun."
-    encounter_agent = AgentTemplate.from_file(
-        next_path, 
-        context=dm_response, 
-        summary=current_summary
-    )
+# System prompt to define the agent's behavior as a Dungeon Master
+messages = [
+    {'role': 'system', 'content': template_file=dm_template_file, recruit_difficulty='not easy', reward='a sword'}
+]
 
-    agent_message = encounter_agent.start_chat()
-    print(f"--- Encounter Started ---")
-    print(f"Agent: {agent_message}\n")
+# Hyperparameters: High temperature with high token
+options = {'temperature': 1, 'max_tokens': 300}
 
+messages.append({'role':'user', 'content':''}) # An empty user message to prompt the model to start responding.
+
+options |= {'seed': seed(sign_your_name)}
+
+# But before here.
+
+def run_console_chat(template_file, agent_name='Agent', **kwargs):
+    '''
+    Run a console chat with the given template file and agent name.
+    Args:
+        template_file: The path to the template file.
+        agent_name: The name of the agent to display in the console.
+        **kwargs: Additional arguments to pass to the AgentTemplate.from_file method.
+    '''
+    chat = AgentTemplate.from_file(template_file, **kwargs)
+    response = chat.start_chat()
     while True:
         user_input = input("You: ")
         
