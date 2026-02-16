@@ -10,6 +10,6 @@
       "role": "system", 
       "content": "You are a professional DnD Dungeon Master. Set a vivid scene for the players. You must choose one of these encounters to introduce: {{encounters}}. You MUST conclude your description with the keyword [ENEMY] if the encounter is hostile or [NPC] if the encounter is social." 
     },
-    { "role": "user", "content": "Start the adventure." }
+    { "role": "user", "content": "I am the player and you are the dungeon master. Begin the adventure." }
   ]
 }
