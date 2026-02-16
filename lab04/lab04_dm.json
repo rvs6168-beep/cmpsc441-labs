@@ -1,12 +1,15 @@
 {
-  "model": "gemma3",
+  "model": "gemma3:270m",
   "options": {
-    "temperature": 0,
-    "seed" :"Pulin Agrawal",
-    "max_tokens": 100
+    "temperature": 0.9,
+    "seed" :"Raghav Sandeep Sharavanan",
+    "max_tokens": 150
   },
   "messages": [
-      { "role": "system", "content": "You are a DnD Dungeon Master. You will take the players on a short adventure. The players can meet one of the following people: {{encounters}}. You will pick one of the people for the players to meet. They will interact and then the adventure will end."}, 
-      { "role": "user", "content": "" }
+    { 
+      "role": "system", 
+      "content": "You are a professional DnD Dungeon Master. Set a vivid scene for the players. You must choose one of these encounters to introduce: {{encounters}}. You MUST conclude your description with the keyword [ENEMY] if the encounter is hostile or [NPC] if the encounter is social." 
+    },
+    { "role": "user", "content": "Start the adventure." }
   ]
 }

@@ -1,38 +1,58 @@
-from pathlib import Path
+import os
 import sys
 
-sys.path.append(str(Path(__file__).parents[1]))
+root_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(root_path)
 
 from util.llm_utils import AgentTemplate
 
-# Add code here
+def run_console_chat(dm_agent):
+    print("\n>>> [System] Contacting the Dungeon Master...\n")
+    
+    dm_response = dm_agent.start_chat() 
+    print(f"[Dungeon Master]: {dm_response}\n")
 
-# But before here.
+    if "ENEMY" in dm_response.upper() or "FIGHT" in dm_response.upper():
+        next_template = "lab04_enemy.json"
+        print(">>> System: Routing to ENEMY encounter...\n")
+    else:
+        next_template = "lab04_npc.json"
+        print(">>> System: Routing to NPC encounter...\n")
 
-def run_console_chat(template_file, agent_name='Agent', **kwargs):
-    '''
-    Run a console chat with the given template file and agent name.
-    Args:
-        template_file: The path to the template file.
-        agent_name: The name of the agent to display in the console.
-        **kwargs: Additional arguments to pass to the AgentTemplate.from_file method.
-    '''
-    chat = AgentTemplate.from_file(template_file, **kwargs)
-    response = chat.start_chat()
+    next_path = os.path.join(root_path, "lab04", next_template)
+    
+    current_summary = "The encounter has just begun."
+    encounter_agent = AgentTemplate.from_file(
+        next_path, 
+        context=dm_response, 
+        summary=current_summary
+    )
+
+    agent_message = encounter_agent.start_chat()
+    print(f"--- Encounter Started ---")
+    print(f"Agent: {agent_message}\n")
+
     while True:
-        print(f'{agent_name}: {response}')
-        try:
-            response = chat.send(input('You: '))
-            # Add code here to check which agent chat should be started
-
-
-            # But before here.
-        except StopIteration as e:
+        user_input = input("You: ")
+        
+        if user_input.lower() in ["exit", "/exit", "quit"]:
             break
+            
+        new_summary = f"The player chose to: {user_input}. Previously, you said: {agent_message[:50]}..."
+        encounter_agent.parameters['summary'] = new_summary
 
-if __name__ ==  '__main__':
-    # Add code here to start DM chat
+        agent_message = encounter_agent.send(user_input)
+        print(f"\nAgent: {agent_message}\n")
 
+if __name__ == "__main__":
+    dm_json_path = os.path.join(root_path, "lab04", "lab04_dm.json")
+    
+    if not os.path.exists(dm_json_path):
+        print(f"Error: Could not find {dm_json_path}")
+        sys.exit(1)
 
-    # But before here.
-    pass
+    adventure_options = "a social meeting with a merchant (NPC) or an ambush by a monster (ENEMY)"
+    
+    dm_agent = AgentTemplate.from_file(dm_json_path, encounters=adventure_options)
+
+    run_console_chat(dm_agent)
