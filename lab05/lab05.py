@@ -1,29 +1,32 @@
 from pathlib import Path
-from pdb import run
 import sys
-
 sys.path.append(str(Path(__file__).parents[1]))
 
-from util.llm_utils import AgentTemplate
-encounters = ['npc', 'trader', 'recruit']
-def run_console_chat(template_file, agent_name='Agent', **kwargs):
-    chat = AgentTemplate.from_file(**kwargs)
-    response = chat.start_chat()
-    while True:
-        print(f'{agent_name}: {response}')
-        # if one of the encounrters in message then start that chat
-        this_encounter = list(filter(lambda encounter: encounter in response.lower(), encounters))
-        if this_encounter:
-            encounter = this_encounter[0]
-            print(f'Starting {encounter} chat...')
-            run_console_chat(template_file=f'lab04/lab04_{encounter}_chat.json', 
-                            agent_name=encounter.capitalize(),
-                             **kwargs)
+import random
+from util.llm_utils import run_console_chat, tool_tracker
 
-        response = chat.send(input('You: '))
+# beauty of Python
+@tool_tracker
+def process_function_call(function_call):
+    name = function_call.name
+    args = function_call.arguments
 
-lab04_params = {}
+    return globals()[name](**args)
 
-if __name__ ==  '__main__':
-    # run lab04.py to test your template interactively
-    pass
+def roll_for(skill, dc, player):
+    n_dice = 1
+    sides = 20
+    roll = sum([random.randint(1, sides) for _ in range(n_dice)])
+    if roll >= int(dc):
+        return f'{player} rolled {roll} for {skill} and succeeded!'
+    else:
+        return f'{player} rolled {roll} for {skill} and failed!'
+
+def process_response(self, response):
+    # Fill out this function to process the response from the LLM
+    # and make the function call
+    # Hint: check response.message.tool_calls and use process_function_call
+    return response
+
+run_console_chat(template_file='lab05/lab05_dice_template.json',
+                 process_response=process_response)
