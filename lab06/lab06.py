@@ -86,6 +86,22 @@ def generate_character(description: str) -> CharacterSheet:
     Returns:
         A validated CharacterSheet instance
     """
+    character_response = ollama.chat(
+        model=MODEL,
+        messages=[
+            {
+                "role": "system",
+                "content": "Create a DND character using the user description provided. This DND character will be used the the player (user). Generate different name and background everytime to keep things unique."
+             },
+             {
+                 "role": "user",
+                 "content": description
+             }
+             ],
+        format=CharacterSheet.model_json_schema()
+    )
+    character_result = CharacterSheet.model_validate_json(character_response.message.content)
+    return character_result
     pass
 
 
@@ -103,6 +119,22 @@ def generate_monster(concept: str) -> MonsterStats:
     Returns:
         A validated MonsterStats instance
     """
+    monster_response = ollama.chat(
+        model=MODEL,
+        messages=[
+            {
+                "role": "system",
+                "content": "Create a DND monster based on the concept provided. This monster will fight the player (user). Generate different name and background everytime to keep things unique."
+             },
+             {
+                 "role": "user",
+                 "content": concept
+             }
+             ],
+        format=MonsterStats.model_json_schema()
+    )
+    monster_result = MonsterStats.model_validate_json(monster_response.message.content)
+    return monster_result
     pass
 
 
@@ -128,7 +160,23 @@ def generate_encounter(party_level: int, num_monsters: int, theme: str) -> Encou
     Returns:
         A validated Encounter instance
     """
-    pass
+    encounter_response = ollama.chat(
+        model="llama3.2:latest",
+        messages=[
+            {
+                "role": "system",
+                "content": f"Create an encounter that is appropriate for a player level of {party_level}, while having exactly {num_monsters} monsters and following the environmental theme of {theme}"
+             },
+             {
+                 "role": "user",
+                 "content": f"player level: {party_level}, number of monsters: {num_monsters}, theme: {theme}"
+             }
+             ],
+        format=Encounter.model_json_schema()
+    )
+    
+    encounter_result = Encounter.model_validate_json(encounter_response.message.content)
+    return encounter_result
 
 
 # ============================================================================
