@@ -11,7 +11,7 @@ whether the greedy policy reliably reaches the goal.
 """
 
 from collections import defaultdict
-
+import random
 import gymnasium as gym
 from tqdm import tqdm
 
@@ -45,7 +45,19 @@ def choose_action(state, action_space, epsilon):
         measurement mode relies on that.
     """
     # TODO: replace this line with your epsilon-greedy implementation.
-    return action_space.sample()
+    if random.random() < epsilon:
+        # Exploration: pick a random action
+        return action_space.sample()
+
+    # Exploitation: pick argmax_a Q[(state, a)], breaking ties randomly
+    num_actions = action_space.n
+    q_values = [Q[(state, a)] for a in range(num_actions)]
+    max_q = max(q_values)
+
+    # Collect all actions that tie for the maximum
+    best_actions = [a for a in range(num_actions) if q_values[a] == max_q]
+
+    return random.choice(best_actions)
 
 
 def update_from_episode(episode):
@@ -61,7 +73,18 @@ def update_from_episode(episode):
                returns_count[(s, a)] += 1
                Q[(s, a)] += (G - Q[(s, a)]) / returns_count[(s, a)]
     """
-    # TODO: implement the first-visit MC update.
+    G = 0.0
+    visited = set()  # tracks (state, action) pairs already updated
+
+    # Walk backwards through the episode
+    for state, action, reward in reversed(episode):
+        G = reward + GAMMA * G
+
+        if (state, action) not in visited:
+            visited.add((state, action))
+            returns_count[(state, action)] += 1
+            # Incremental running average update
+            Q[(state, action)] += (G - Q[(state, action)]) / returns_count[(state, action)]
     pass
 
 
