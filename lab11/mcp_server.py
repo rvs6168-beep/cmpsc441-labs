@@ -4,7 +4,12 @@ DnD MCP Server - Lab 11
 Complete implementation of the MCP server with three DnD-related tools.
 """
 
+===================================
+Complete implementation of the MCP server with three DnD-related tools.
+"""
+
 import random
+from fastmcp import FastMCP
 from fastmcp import FastMCP
 
 
@@ -36,6 +41,10 @@ CHARACTERS = {
     }
 }
 
+# Create the MCP server instance
+mcp = FastMCP("dnd-tools-server")
+
+@mcp.tool()
 # Create the MCP server instance
 mcp = FastMCP("dnd-tools-server")
 
@@ -105,4 +114,5 @@ def calculate_damage(base_damage: int, armor_class: int, attack_roll: int) -> st
     return message
 
 if __name__ == "__main__":
+    mcp.run(transport="stdio")
     mcp.run(transport="stdio")
